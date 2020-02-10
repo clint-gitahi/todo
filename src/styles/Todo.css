@@ -10,7 +10,6 @@
 .Todo-task {
   position: relative;
   transition: opacity 0.4s linear;
-  font-size: large;
 }
 
 .Todo-task.completed {

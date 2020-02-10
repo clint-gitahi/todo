@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should handle onSubmit handler 1`] = `ShallowWrapper {}`;
+
+exports[`should test NewForm component 1`] = `ShallowWrapper {}`;

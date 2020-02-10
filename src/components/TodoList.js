@@ -23,8 +23,6 @@ class TodoList extends Component {
     if (todos) {
       const parsedJson = JSON.parse(todos);
       this.setState({ todos: parsedJson });
-    } else {
-      console.log('todos not found');
     }
   }
 
@@ -75,7 +73,6 @@ class TodoList extends Component {
   }
 
   render() {
-    console.log(this.state);
     const todos = this.state.todos.map(todo => {
       return (
         <Todo
@@ -93,9 +90,9 @@ class TodoList extends Component {
       <div className="TodoList">
         <h1>
           Todo list <span>Simple Todo List App</span>
-          <NewTodoForm createTodo={this.create} />
-          <ul>{todos}</ul>
         </h1>
+        <NewTodoForm createTodo={this.create} />
+        <ul>{todos}</ul>
       </div>
     );
   }
