@@ -1,7 +1,7 @@
 .Todo {
   display: flex;
   margin: 0 -3rem 4px;
-  padding: 1.1rem 3 rem;
+  padding: 1.1rem 3rem;
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
@@ -11,6 +11,7 @@
   position: relative;
   transition: opacity 0.4s linear;
 }
+
 .Todo-task.completed {
   opacity: 0.6;
 }
@@ -26,10 +27,18 @@
   background: #fff;
   animation: strikeitem 0.5s ease-out 0s forwards;
 }
+
+@keyframes strikeitem {
+  to {
+    width: calc(100% + 1rem);
+  }
+}
+
 .Todos-buttons {
   flex-shrink: 0;
   padding-left: 0.7em;
 }
+
 .Todos-buttons button {
   border: none;
   font-size: 1em;
@@ -39,6 +48,7 @@
   cursor: pointer;
   color: #fff;
 }
+
 .Todo-edit-form {
   display: flex;
   flex-wrap: wrap;
