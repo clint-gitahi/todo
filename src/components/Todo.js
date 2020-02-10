@@ -9,7 +9,7 @@ class Todo extends Component {
     this.handleRemove = this.handleRemove.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   toggleForm() {
@@ -24,24 +24,32 @@ class Todo extends Component {
     });
   }
 
+  handleUpdate(event) {
+    event.preventDefault();
+
+    this.props.updateTodo(this.props.id, this.state.task);
+
+    this.setState({ isEditing: false });
+  }
+
   handleRemove() {
     this.props.removeTodo(this.props.id);
   }
 
   render() {
-    console.log(this.state);
     let result;
 
     if (this.state.isEditing) {
       result = (
         <div>
-          <form>
+          <form onSubmit={this.handleUpdate}>
             <input
               type="text"
               name="task"
               value={this.state.task}
               onChange={this.handleChange}
             />
+            <button>Save</button>
           </form>
         </div>
       );
