@@ -7,24 +7,23 @@ class TodoList extends Component {
     super(props);
 
     this.state = {
-      todos: [
-        { task: 'start leetcode' },
-        { task: 'complete divide and conquer section' }
-      ]
+      todos: []
     };
 
     this.create = this.create.bind(this);
   }
 
   create(newTodo) {
+    console.log(newTodo);
     this.setState({
       todos: [...this.state.todos, newTodo]
     });
   }
 
   render() {
+    console.log(this.state);
     const todos = this.state.todos.map(todo => {
-      return <Todo task={todo.task} />;
+      return <Todo task={todo.task} key={todo.id} />;
     });
     return (
       <div>
