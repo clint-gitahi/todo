@@ -1,7 +1,7 @@
 .Todo {
   display: flex;
   margin: 0 -3rem 4px;
-  padding: 1.1rem 3rem;
+  padding: 0rem 3rem;
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
@@ -10,6 +10,7 @@
 .Todo-task {
   position: relative;
   transition: opacity 0.4s linear;
+  font-size: large;
 }
 
 .Todo-task.completed {

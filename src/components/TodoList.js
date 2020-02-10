@@ -17,6 +17,28 @@ class TodoList extends Component {
     this.toggleCompletion = this.toggleCompletion.bind(this);
   }
 
+  componentDidMount() {
+    const todos = localStorage.getItem('todos');
+
+    if (todos) {
+      const parsedJson = JSON.parse(todos);
+      this.setState({ todos: parsedJson });
+    } else {
+      console.log('todos not found');
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('prevState', prevState);
+    const { todos } = this.state;
+
+    if (prevState.todos.length !== this.state.todos.length) {
+      const json = JSON.stringify(todos);
+
+      localStorage.setItem('todos', json);
+    }
+  }
+
   create(newTodo) {
     this.setState({
       todos: [...this.state.todos, newTodo]
