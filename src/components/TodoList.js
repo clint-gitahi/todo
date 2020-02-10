@@ -12,6 +12,14 @@ class TodoList extends Component {
         { task: 'complete divide and conquer section' }
       ]
     };
+
+    this.create = this.create.bind(this);
+  }
+
+  create(newTodo) {
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    });
   }
 
   render() {
@@ -22,7 +30,7 @@ class TodoList extends Component {
       <div>
         <h1>
           Todo list <span>Simple Todo List App</span>
-          <NewTodoForm />
+          <NewTodoForm createTodo={this.create} />
           <ul>{todos}</ul>
         </h1>
       </div>
